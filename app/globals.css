@@ -1,21 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(43, 43, 43);
+  background: repeating-linear-gradient(
+    90deg,
+    #191b24,
+    #191b24 40px,
+    #3b3c4e 40px,
+    #3b3c4e 65px
+  );
 }

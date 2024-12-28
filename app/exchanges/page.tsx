@@ -1,6 +1,6 @@
 import { PageHeading } from "@/components/global";
 import { IExchange } from "@/models";
-import { getExchanges } from "@/services";
+import { getExchanges, getExchangesTotal } from "@/services";
 import Exchanges from "../../components/exchanges/exchanges/index";
 
 export default async function ExchangesPage(props: {
@@ -13,6 +13,7 @@ export default async function ExchangesPage(props: {
   const page = parseInt(searchParams?.page || "1", 10) || 1;
 
   const exchanges: IExchange[] = await getExchanges(12, page);
+  const exchangesTotal = await getExchangesTotal();
 
   return (
     <main className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen">
@@ -38,7 +39,9 @@ export default async function ExchangesPage(props: {
           <span className="text-white">Page {page}</span>
           <a
             href={`?page=${page + 1}`}
-            className="px-4 py-2 bg-gray-700 text-white rounded"
+            className={`px-4 py-2 bg-gray-700 text-white rounded ${
+              page > exchangesTotal ? "opacity-50 pointer-events-none" : ""
+            }`}
           >
             Next
           </a>

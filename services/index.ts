@@ -1,3 +1,5 @@
+import instance from "./api.service";
+
 export const getTopCoins = async () => {
   return [
     {
@@ -295,4 +297,25 @@ export const getTopCoins = async () => {
       last_updated: "2024-12-26T08:38:06.644Z",
     },
   ];
+};
+
+export const getExchanges = async (per_page = 12, page = 1) => {
+  try {
+    const data = await instance.get(
+      `exchanges?per_page=${per_page}&page=${page}`
+    );
+
+    return data.data;
+  } catch {
+    return [];
+  }
+};
+
+export const getExchangesTotal = async (): Promise<number> => {
+  try {
+    const data = await instance.get("exchanges/list");
+    return data.data.length;
+  } catch {
+    return 0;
+  }
 };

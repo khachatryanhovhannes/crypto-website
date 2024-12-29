@@ -34,7 +34,7 @@ export default async function Hero() {
                 price_change_percentage_24h,
                 image,
               }) => (
-                <Link key={id} href={`/crypto/${name}/history`}>
+                <Link key={id} href={`/crypto/${name}`}>
                   <div className="flex items-center gap-4 p-4 bg-gray-800 rounded-lg shadow-md">
                     <div className="relative w-10 h-10">
                       <Image

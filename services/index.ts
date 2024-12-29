@@ -300,14 +300,22 @@ export const getTopCoins = async () => {
 };
 
 export const getExchanges = async (per_page = 12, page = 1) => {
-  const data = await instance.get(
-    `exchanges?per_page=${per_page}&page=${page}`
-  );
+  try {
+    const data = await instance.get(
+      `exchanges?per_page=${per_page}&page=${page}`
+    );
 
-  return data.data;
+    return data.data;
+  } catch {
+    return [];
+  }
 };
 
 export const getExchangesTotal = async (): Promise<number> => {
-  const data = await instance.get("exchanges/list");
-  return data.data.length;
+  try {
+    const data = await instance.get("exchanges/list");
+    return data.data.length;
+  } catch {
+    return 0;
+  }
 };

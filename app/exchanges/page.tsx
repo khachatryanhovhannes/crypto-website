@@ -2,14 +2,13 @@ import { PageHeading } from "@/components/global";
 import { IExchange } from "@/models";
 import { getExchanges, getExchangesTotal } from "@/services";
 import Exchanges from "../../components/exchanges/exchanges/index";
+import Link from "next/link";
 
 export default async function ExchangesPage(props: {
   searchParams: { page?: string };
 }) {
-  // Await searchParams (if Next.js requires it)
   const searchParams = await Promise.resolve(props.searchParams);
 
-  // Safely parse the page number
   const page = parseInt(searchParams?.page || "1", 10) || 1;
 
   const exchanges: IExchange[] = await getExchanges(12, page);
@@ -28,23 +27,23 @@ export default async function ExchangesPage(props: {
 
         {/* Pagination Controls */}
         <div className="flex justify-center items-center mt-6 space-x-4">
-          <a
+          <Link
             href={`?page=${Math.max(page - 1, 1)}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
               page === 1 ? "opacity-50 pointer-events-none" : ""
             }`}
           >
             Previous
-          </a>
+          </Link>
           <span className="text-white">Page {page}</span>
-          <a
+          <Link
             href={`?page=${page + 1}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
               page > exchangesTotal ? "opacity-50 pointer-events-none" : ""
             }`}
           >
             Next
-          </a>
+          </Link>
         </div>
       </section>
     </main>

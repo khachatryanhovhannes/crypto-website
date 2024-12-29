@@ -1,3 +1,5 @@
+import instance from "./api.service";
+
 export const getTopCoins = async () => {
   return [
     {
@@ -298,197 +300,22 @@ export const getTopCoins = async () => {
 };
 
 export const getExchanges = async (per_page = 12, page = 1) => {
-  return [
-    {
-      id: "binance",
-      name: "Binance",
-      year_established: 2017,
-      country: "Cayman Islands",
-      description:
-        "One of the world’s largest cryptocurrency exchanges by trading volume, offering a wide range of services including spot, futures, and staking options.",
-      url: "https://www.binance.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/52/small/binance.jpg?1706864274",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 1,
-      trade_volume_24h_btc: 190208.81385394704,
-      trade_volume_24h_btc_normalized: 115028.21819469266,
-    },
-    {
-      id: "bybit_spot",
-      name: "Bybit",
-      year_established: 2018,
-      country: "British Virgin Islands",
-      description:
-        "Bybit is a cryptocurrency exchange that offers a professional platform featuring an ultra-fast matching engine, excellent customer service and multilingual community support for crypto traders of all levels. Established in March 2018, Bybit currently serves more than 10 million users and institutions offering access to over 100 assets and contracts across Spot, Futures and Options, launchpad projects, earn products, an NFT Marketplace and more. Bybit is a proud partner of Formula One racing team, Oracle Red Bull Racing, esports teams NAVI, Astralis, Alliance, Virtus.pro, Made in Brazil (MIBR), City Esports, and Oracle Red Bull Racing Esports, and association football (soccer) teams Borussia Dortmund and Avispa Fukuoka.",
-      url: "https://www.bybit.com",
-      image:
-        "https://coin-images.coingecko.com/markets/images/698/small/bybit_spot.png?1706864649",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 2,
-      trade_volume_24h_btc: 56037.02358509292,
-      trade_volume_24h_btc_normalized: 39535.30270320057,
-    },
-    {
-      id: "gdax",
-      name: "Coinbase Exchange",
-      year_established: 2012,
-      country: "United States",
-      description:
-        "A leading U.S.-based exchange known for its regulatory compliance, user-friendly interface, and support for fiat-to-crypto transactions.",
-      url: "https://www.coinbase.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/23/small/Coinbase_Coin_Primary.png?1706864258",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 3,
-      trade_volume_24h_btc: 34483.697549560944,
-      trade_volume_24h_btc_normalized: 34483.697549560944,
-    },
-    {
-      id: "okex",
-      name: "OKX",
-      year_established: 2017,
-      country: "Seychelles",
-      description:
-        "OKX is a leading global cryptocurrency exchange offering diverse trading options, advanced security, and Web3 integration for millions of users worldwide.\r\n",
-      url: "https://www.okx.com",
-      image:
-        "https://coin-images.coingecko.com/markets/images/96/small/WeChat_Image_20220117220452.png?1706864283",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 4,
-      trade_volume_24h_btc: 31246.469916429804,
-      trade_volume_24h_btc_normalized: 31246.469916429804,
-    },
-    {
-      id: "kraken",
-      name: "Kraken",
-      year_established: 2011,
-      country: "United States",
-      description:
-        "Kraken is a San Francisco-based cryptocurrency exchange, offering a wide range of trading services for various cryptocurrencies and known for its robust security and regulatory compliance efforts.\r\n",
-      url: "https://www.kraken.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/29/small/kraken.jpg?1706864265",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 5,
-      trade_volume_24h_btc: 11284.265446111534,
-      trade_volume_24h_btc_normalized: 11284.265446111534,
-    },
-    {
-      id: "kucoin",
-      name: "KuCoin",
-      year_established: 2017,
-      country: "Seychelles",
-      description:
-        "Launched in September 2017, KuCoin is a global cryptocurrency exchange with its operational headquarters in Seychelles. As a user-oriented platform with a focus on inclusiveness and community action reach, it offers over 800 digital assets and currently provides Spot trading, Margin trading, P2P Fiat trading, Futures trading, Staking, and Lending to its 30 million users in more than 200 countries and regions. KuCoin is currently one of the top 5 crypto exchanges. In 2023, KuCoin was named one of the Best Crypto Exchanges by Forbes and recognized as a highly commended global exchange in Finder's 2023 Global Cryptocurrency Trading Platform Awards. Learn more at https://www.kucoin.com.",
-      url: "https://www.kucoin.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/61/small/kucoin.png?1706864282",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 6,
-      trade_volume_24h_btc: 10501.644023355253,
-      trade_volume_24h_btc_normalized: 10501.644023355253,
-    },
-    {
-      id: "hashkey_exchange",
-      name: "HashKey Exchange",
-      year_established: 2018,
-      country: "Hong Kong",
-      description:
-        "On a mission to set the bar for virtual asset exchanges in compliance, safety, and security, Hash Blockchain Limited (HashKey Exchange) is Hong Kong's first licensed virtual asset exchange for retail users. HashKey Exchange has recently received approval from the Securities and Futures Commission (SFC) of Hong Kong to operate a virtual asset trading platform under Type 1 (Dealing in securities) licence and Type 7 (Providing automated trading services) licence. As HashKey Group's exchange business, HashKey Exchange provides all-in-one trading services for both professional investors (PI) and retail investors. HashKey Exchange has obtained ISO 27001 (Information Security) and ISO 27701 (Data Privacy) management system certifications.",
-      url: "https://www.hashkey.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/1206/small/hashkey_2.png?1706869603",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 7,
-      trade_volume_24h_btc: 658.76550031921,
-      trade_volume_24h_btc_normalized: 658.76550031921,
-    },
-    {
-      id: "binance_us",
-      name: "Binance US",
-      year_established: 2019,
-      country: "United States",
-      description:
-        "Binance U.S. is the American branch of the world's largest cryptocurrency exchange, Binance, launched to comply with U.S. regulations and offering over 100 cryptocurrencies with competitive trading fees.",
-      url: "https://www.binance.us/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/469/small/Binance.png?1706864454",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 8,
-      trade_volume_24h_btc: 152.307242644622,
-      trade_volume_24h_btc_normalized: 152.307242644622,
-    },
-    {
-      id: "hashkey-global",
-      name: "HashKey Global",
-      year_established: 2018,
-      country: "Bermuda",
-      description:
-        "HashKey Global is the flagship digital asset exchange under HashKey Group, offering licensed digital asset trading services to global users. HashKey Global is licensed in under the Bermuda Monetary Authority's full Digital Asset Business investor protection regime under a Class F Full License.   HashKey Global adopts the compliance, security, and audit best practices of HashKey Exchange (the largest licensed digital asset exchange in Hong Kong), with features such as asset segregation,  information security controls, insurance, independent auditing, and payments settlement.  HashKey Global has a compliant listing system and will offer mainstream trading services like LaunchPad, futures, leverage and staking.  HashKey Global is the core of HashKey Group's global licensed exchange landscape.  Note: HashKey Global does not conduct business in the United States, mainland China, Hong Kong, and certain sanctioned countries.  For more details :global.hashkey.com ",
-      url: "https://global.hashkey.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/1582/small/20240422-181043.jpg?1715067065",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 9,
-      trade_volume_24h_btc: 69.83478055634365,
-      trade_volume_24h_btc_normalized: 69.83478055634365,
-    },
-    {
-      id: "backpack_exchange",
-      name: "Backpack Exchange ",
-      year_established: 2023,
-      country: "British Virgin Islands",
-      description: "A next-gen cryptocurrency exchange. ",
-      url: "https://backpack.exchange/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/1387/small/backpack.jpeg?1708663541",
-      has_trading_incentive: false,
-      trust_score: 10,
-      trust_score_rank: 10,
-      trade_volume_24h_btc: 33.79885513407933,
-      trade_volume_24h_btc_normalized: 33.79885513407933,
-    },
-    {
-      id: "whitebit",
-      name: "WhiteBIT",
-      year_established: 2018,
-      country: "Lithuania",
-      description:
-        "WhiteBIT is a European centralized cryptocurrency exchange, offering a secure platform for trading with competitive fees and advanced trading tools.\r\n",
-      url: "https://whitebit.com",
-      image:
-        "https://coin-images.coingecko.com/markets/images/418/small/800_800.jpg?1706864419",
-      has_trading_incentive: false,
-      trust_score: 9,
-      trust_score_rank: 11,
-      trade_volume_24h_btc: 46831.15607970056,
-      trade_volume_24h_btc_normalized: 45846.27924323534,
-    },
-    {
-      id: "bitget",
-      name: "Bitget",
-      year_established: 2018,
-      country: "Seychelles",
-      description:
-        "Bitget is known for being the one of the largest crypto copy trading platforms and offering a wide range of trading services, including spot and futures trading.",
-      url: "https://www.bitget.com/",
-      image:
-        "https://coin-images.coingecko.com/markets/images/540/small/2023-07-25_21.47.43.jpg?1706864507",
-      has_trading_incentive: false,
-      trust_score: 9,
-      trust_score_rank: 12,
-      trade_volume_24h_btc: 46313.96999590272,
-      trade_volume_24h_btc_normalized: 33756.495711148964,
-    },
-  ];
+  try {
+    const data = await instance.get(
+      `exchanges?per_page=${per_page}&page=${page}`
+    );
+
+    return data.data;
+  } catch {
+    return [];
+  }
+};
+
+export const getExchangesTotal = async (): Promise<number> => {
+  try {
+    const data = await instance.get("exchanges/list");
+    return data.data.length;
+  } catch {
+    return 0;
+  }
 };

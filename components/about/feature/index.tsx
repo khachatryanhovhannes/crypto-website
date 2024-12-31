@@ -11,7 +11,7 @@ export default function Features() {
         your cryptocurrency needs and help you stay ahead in the ever-changing
         market.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 py-8 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 py-12 gap-5">
         {FEATURES.map((feature) => (
           <div key={feature.title} className="text-center">
             <h4 className="text-xl text-white">{feature.title}</h4>

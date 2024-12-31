@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "About Our Crypto Tracking Platform",
+  description:
+    "Learn about our crypto tracking platform that provides real-time data, insights, and tools for tracking cryptocurrency market trends, trading volumes, and price fluctuations.",
+};
+
 import { PageHeading } from "@/components/global";
 import { Features, Hero, Mission, Team, WhyChoose } from "@/components/about";
 

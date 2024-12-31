@@ -1,5 +1,6 @@
 import { IExchange } from "@/models";
 import Image from "next/image";
+import Link from "next/link";
 
 interface IExchangeProps {
   exchange: IExchange;
@@ -19,7 +20,9 @@ export default function Exchange({ exchange }: IExchangeProps) {
           className="rounded-full mx-auto object-contain"
         />
       </div>
-      <h2 className="text-lg font-bold mt-4 text-center text-white">{exchange.name}</h2>
+      <h2 className="text-lg font-bold mt-4 text-center text-white">
+        {exchange.name}
+      </h2>
       <p className="text-sm text-gray-300 text-center">
         {exchange.country || "Unknown Country"}
       </p>
@@ -29,14 +32,13 @@ export default function Exchange({ exchange }: IExchangeProps) {
       <p className="text-sm text-gray-300 text-center">
         Trade Volume (24h BTC): {exchange.trade_volume_24h_btc.toFixed(2)}
       </p>
-      <a
-        href={exchange.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block mt-4 text-blue-500 text-center"
-      >
-        Visit Exchange
-      </a>
+      <div className="text-center">
+        <Link href={exchange.url} target="_blank">
+          <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5">
+            See Details
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

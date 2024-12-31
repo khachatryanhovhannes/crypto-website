@@ -12,3 +12,12 @@ export interface IExchange {
   centralized?: boolean;
   market_count?: number;
 }
+
+export interface ICoin {
+  id: string;
+  symbol: string;
+  name: string;
+  platforms: {
+    [key: string]: string;
+  };
+}

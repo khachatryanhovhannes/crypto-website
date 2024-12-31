@@ -1,5 +1,5 @@
 import { PageHeading } from "@/components/global";
-import { Hero, Mission, WhyChoose } from "@/components/about";
+import { Hero, Mission, Team, WhyChoose } from "@/components/about";
 
 export default function About() {
   return (
@@ -11,6 +11,7 @@ export default function About() {
       <Hero />
       <Mission />
       <WhyChoose />
+      <Team />
     </main>
   );
 }

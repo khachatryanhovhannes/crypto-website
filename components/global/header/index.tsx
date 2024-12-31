@@ -19,8 +19,8 @@ export default function Header() {
           <Link href="/" className="hover:text-red-500">
             Home
           </Link>
-          <Link href="/markets" className="hover:text-red-500">
-            Markets
+          <Link href="/crypto" className="hover:text-red-500">
+            Crypto
           </Link>
           <Link href="/exchanges" className="hover:text-red-500">
             Exchanges

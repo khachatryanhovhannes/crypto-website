@@ -18,9 +18,11 @@ export default async function Hero() {
             Get the latest data on cryptocurrencies, including prices, market
             trends, and changes in the last 24 hours.
           </h2>
-          <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5">
-            See All
-          </button>
+          <Link href="/coins">
+            <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5">
+              See All
+            </button>
+          </Link>
         </div>
 
         {/* Top Cryptocurrencies */}
@@ -34,7 +36,7 @@ export default async function Hero() {
                 price_change_percentage_24h,
                 image,
               }) => (
-                <Link key={id} href={`/crypto/${name}`}>
+                <Link key={id} href={`/coins/${name}`}>
                   <div className="flex items-center gap-4 p-4 bg-gray-800 rounded-lg shadow-md">
                     <div className="relative w-10 h-10">
                       <Image

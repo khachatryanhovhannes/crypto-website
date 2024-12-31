@@ -323,7 +323,7 @@ export const getExchangesTotal = async (): Promise<number> => {
 export const getCoins = async (per_page = 15, page = 1) => {
   try {
     const data = await instance.get(
-      `exchanges?per_page=${per_page}&page=${page}`
+      `coins/markets?vs_currency=usd&per_page=${per_page}&page=${page}`
     );
 
     return data.data;
@@ -334,7 +334,7 @@ export const getCoins = async (per_page = 15, page = 1) => {
 
 export const getCoinsTotal = async (): Promise<number> => {
   try {
-    const data = await instance.get("coins/list");
+    const data = await instance.get("coins/markets?vs_currency=usd");
     return data.data.length;
   } catch {
     return 0;

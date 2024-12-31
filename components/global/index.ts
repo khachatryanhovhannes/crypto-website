@@ -1,4 +1,5 @@
 import Header from "./header";
-import PageHeading from "./page_heading/index";
+import PageHeading from "./page_heading";
+import Footer from "./footer";
 
-export { Header, PageHeading };
+export { Header, PageHeading, Footer };

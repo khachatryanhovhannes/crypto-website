@@ -55,7 +55,7 @@ export default function Coin({ ...props }: iCoinProps) {
       </div>
 
       <div className="text-center">
-        <Link href={"coins/" + coin.name}>
+        <Link href={"coins/" + coin.id}>
           <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5">
             See More
           </button>

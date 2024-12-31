@@ -4,9 +4,9 @@ import image from "../../../public/images/71a53a2f2c8bc26fa1d582c17a80d021.jpg";
 export default function Mission() {
   return (
     <section>
-      <h1 className="text-4xl font-bold p-3 text-white text-center">
+      <h2 className="text-3xl font-bold p-3 text-white text-center">
         Our Mission
-      </h1>
+      </h2>
       <div className="flex flex-col lg:flex-row items-center gap-16 py-12">
         <div className="lg:w-1/3 w-full relative aspect-video">
           <Image

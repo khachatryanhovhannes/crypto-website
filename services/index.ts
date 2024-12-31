@@ -319,3 +319,24 @@ export const getExchangesTotal = async (): Promise<number> => {
     return 0;
   }
 };
+
+export const getCoins = async (per_page = 15, page = 1) => {
+  try {
+    const data = await instance.get(
+      `exchanges?per_page=${per_page}&page=${page}`
+    );
+
+    return data.data;
+  } catch {
+    return [];
+  }
+};
+
+export const getCoinsTotal = async (): Promise<number> => {
+  try {
+    const data = await instance.get("coins/list");
+    return data.data.length;
+  } catch {
+    return 0;
+  }
+};

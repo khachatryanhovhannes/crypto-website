@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const NAVBAR = [
@@ -24,7 +25,8 @@ const NAVBAR = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <header
       className=" text-white lg:px-12 md:px-6 px-3"
@@ -41,7 +43,9 @@ export default function Header() {
             <Link
               href={nav_item.href}
               key={nav_item.label}
-              className="hover:text-red-500"
+              className={`hover:text-red-500 ${
+                pathname === nav_item.href ? "text-red-600" : ""
+              }`}
             >
               {nav_item.label}
             </Link>

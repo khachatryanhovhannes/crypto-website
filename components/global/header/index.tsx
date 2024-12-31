@@ -26,19 +26,22 @@ const NAVBAR = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <header
-      className=" text-white lg:px-12 md:px-6 px-3"
+      className="text-white lg:px-12 md:px-6 px-3"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.85)" }}
     >
       <div className="container mx-auto flex justify-between items-center p-5">
         {/* Logo */}
         <div className="text-2xl text-red-600 font-bold">
-          <Link href="/">CryptoTracker</Link>
+          <Link href="/" aria-label="Go to homepage">
+            CryptoTracker
+          </Link>
         </div>
 
-        <nav className="hidden md:flex space-x-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-8" aria-label="Main navigation">
           {NAVBAR.map((nav_item) => (
             <Link
               href={nav_item.href}
@@ -46,15 +49,20 @@ export default function Header() {
               className={`hover:text-red-500 ${
                 pathname === nav_item.href ? "text-red-600" : ""
               }`}
+              aria-current={pathname === nav_item.href ? "page" : undefined}
             >
               {nav_item.label}
             </Link>
           ))}
         </nav>
 
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden block text-2xl focus:outline-none"
+          aria-label="Toggle mobile menu"
+          aria-expanded={isOpen ? "true" : "false"}
+          aria-controls="mobile-menu"
         >
           ☰
         </button>
@@ -62,12 +70,17 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <nav className="md:hidden  text-center py-4 space-y-2">
+        <nav
+          id="mobile-menu"
+          className="md:hidden text-center py-4 space-y-2"
+          aria-label="Mobile navigation"
+        >
           {NAVBAR.map((nav_item) => (
             <Link
               href={nav_item.href}
               key={nav_item.label}
               className="hover:text-red-500 block"
+              aria-current={pathname === nav_item.href ? "page" : undefined}
             >
               {nav_item.label}
             </Link>

@@ -1,4 +1,5 @@
 import { PageHeading } from "@/components/global";
+import { Features, Hero, Mission, Team, WhyChoose } from "@/components/about";
 
 export default function About() {
   return (
@@ -7,7 +8,11 @@ export default function About() {
         title="About Our Crypto Tracking Platform"
         subtitle="We provide real-time cryptocurrency data and insights to help you track market trends, trading volumes, and price fluctuations."
       />
-      
+      <Hero />
+      <Mission />
+      <WhyChoose />
+      <Team />
+      <Features />
     </main>
   );
 }

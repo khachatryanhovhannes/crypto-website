@@ -3,8 +3,12 @@ import { Features, Hero, Mission, Team, WhyChoose } from "@/components/about";
 
 export default function About() {
   return (
-    <main className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen">
+    <main
+      className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen"
+      aria-labelledby="about-page-heading"
+    >
       <PageHeading
+        id="about-page-heading"
         title="About Our Crypto Tracking Platform"
         subtitle="We provide real-time cryptocurrency data and insights to help you track market trends, trading volumes, and price fluctuations."
       />

@@ -3,19 +3,30 @@ import image from "../../../public/images/71a53a2f2c8bc26fa1d582c17a80d021.jpg";
 
 export default function Mission() {
   return (
-    <section>
+    <section aria-labelledby="mission-heading">
+      <h2 id="mission-heading" className="sr-only">
+        Our Mission Statement
+      </h2>
+
       <h2 className="text-3xl font-bold p-3 text-white text-center">
         Our Mission
       </h2>
       <div className="flex flex-col lg:flex-row items-center gap-16 py-12">
-        <div className="lg:w-1/3 w-full relative aspect-video">
+        <div
+          className="lg:w-1/3 w-full relative aspect-video"
+          aria-labelledby="mission-image-label"
+        >
           <Image
             src={image}
             fill
-            alt="Cryptocurrency data illustration"
+            alt="Illustration representing cryptocurrency data and trends"
             className="object-cover rounded-md"
           />
+          <span id="mission-image-label" className="sr-only">
+            Cryptocurrency data and trends illustration.
+          </span>
         </div>
+
         <p className="lg:w-2/3 w-full text-gray-200">
           At our core, we are dedicated to empowering individuals and businesses
           to thrive in the ever-evolving world of cryptocurrency. Our mission is

@@ -41,3 +41,38 @@ export interface ICoin {
   roi: null | string;
   last_updated: string;
 }
+
+export interface ISingleCoin {
+  id: string;
+  symbol: string;
+  name: string;
+  web_slug: string;
+  block_time_in_minutes: number;
+  hashing_algorithm: string;
+
+  preview_listing: boolean;
+  description?: {
+    en?: string;
+  };
+  links?: {
+    homepage?: string[];
+  };
+  image: {
+    large: string;
+    small: string;
+  };
+  watchlist_portfolio_users: number;
+  genesis_date: string;
+  market_cap_rank: number;
+  market_data: {
+    price_change_24h: number;
+    price_change_percentage_24h: number;
+    price_change_percentage_7d: number;
+    price_change_percentage_14d: number;
+    price_change_percentage_30d: number;
+    price_change_percentage_60d: number;
+    price_change_percentage_200d: number;
+    price_change_percentage_1y: number;
+  };
+  last_updated?: string;
+}

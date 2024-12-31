@@ -4,7 +4,7 @@ export default function WhyChoose() {
       <h2 className="text-3xl font-bold p-3 text-white text-center">
         Why Choose Us?
       </h2>
-      <div className="flex flex-col text-center text-gray-200 f-full lg: w-2/3 mx-auto gap-5 py-12">
+      <div className="flex flex-col text-center text-gray-200 w-full lg:w-2/3 mx-auto gap-5 py-12">
         <p>
           Our platform is specifically crafted for those who prioritize
           precision, speed, and reliability in the ever-evolving cryptocurrency

@@ -340,3 +340,13 @@ export const getCoinsTotal = async (): Promise<number> => {
     return 0;
   }
 };
+
+export async function getCoinDetails(name: string) {
+  try {
+    const data = await instance.get(`coins/${name}`);
+
+    return data.data;
+  } catch {
+    return {};
+  }
+}

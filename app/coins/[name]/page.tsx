@@ -17,10 +17,10 @@ export default async function CoinPage({ params }: ICoinPageProps) {
       className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen"
       aria-labelledby="coin-page-heading"
     >
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center flex-col sm:flex-row">
         <h1
           id="coin-page-heading"
-          className="text-3xl font-bold p-3 text-white"
+          className="text-3xl font-bold p-3 text-white text-center sm:text-left"
         >
           {coinDetails.name}
         </h1>
@@ -41,7 +41,7 @@ export default async function CoinPage({ params }: ICoinPageProps) {
         </span>
       </div>
 
-      <div className="flex justify-between mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
         {/* Left Section - Coin Details Table */}
         <div className="text-gray-200">
           <table className="min-w-full table-auto" role="table">
@@ -95,10 +95,7 @@ export default async function CoinPage({ params }: ICoinPageProps) {
         </div>
 
         {/* Right Section - Coin Image */}
-        <div
-          className="relative m-auto aspect-square min-w-36"
-          aria-live="polite"
-        >
+        <div className="relative m-auto aspect-square w-36 sm:w-48 lg:w-64 xl:w-80">
           <Image
             src={coinDetails.image.large}
             alt={`Image of ${coinDetails.name}`}
@@ -106,28 +103,28 @@ export default async function CoinPage({ params }: ICoinPageProps) {
             className="rounded-full mx-auto object-contain"
           />
         </div>
+      </div>
 
-        <div className="mt-6 text-center">
-          <h3 className="text-xl font-bold text-white">Price Changes</h3>
-          <ul className="text-gray-300">
-            <li>
-              <span className="font-medium">24h:</span>
-              {coinDetails.market_data.price_change_percentage_24h.toFixed(2)}%
-            </li>
-            <li>
-              <span className="font-medium">7d:</span>
-              {coinDetails.market_data.price_change_percentage_7d.toFixed(2)}%
-            </li>
-            <li>
-              <span className="font-medium">30d:</span>
-              {coinDetails.market_data.price_change_percentage_30d.toFixed(2)}%
-            </li>
-            <li>
-              <span className="font-medium">1y:</span>
-              {coinDetails.market_data.price_change_percentage_1y.toFixed(2)}%
-            </li>
-          </ul>
-        </div>
+      <div className="mt-6 text-center">
+        <h3 className="text-xl font-bold text-white">Price Changes</h3>
+        <ul className="text-gray-300 space-y-2">
+          <li>
+            <span className="font-medium">24h:</span>
+            {coinDetails.market_data.price_change_percentage_24h.toFixed(2)}%
+          </li>
+          <li>
+            <span className="font-medium">7d:</span>
+            {coinDetails.market_data.price_change_percentage_7d.toFixed(2)}%
+          </li>
+          <li>
+            <span className="font-medium">30d:</span>
+            {coinDetails.market_data.price_change_percentage_30d.toFixed(2)}%
+          </li>
+          <li>
+            <span className="font-medium">1y:</span>
+            {coinDetails.market_data.price_change_percentage_1y.toFixed(2)}%
+          </li>
+        </ul>
       </div>
 
       {/* Coin Description Section */}

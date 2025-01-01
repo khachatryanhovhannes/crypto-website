@@ -3,6 +3,13 @@ import { IExchange } from "@/models";
 import { getExchanges, getExchangesTotal } from "@/services";
 import Exchanges from "../../components/exchanges/exchanges/index";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Top Cryptocurrency Exchanges - Crypto Tracker",
+  description:
+    "Explore the top cryptocurrency exchanges ranked by trust score, trading volume, and more. Stay informed and find the right platform for your needs.",
+};
 
 export default async function ExchangesPage(props: {
   searchParams: { page?: string };
@@ -15,8 +22,12 @@ export default async function ExchangesPage(props: {
   const exchangesTotal = await getExchangesTotal();
 
   return (
-    <main className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen">
+    <main
+      className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen"
+      aria-labelledby="exchanges-page-heading"
+    >
       <PageHeading
+        id="exchanges-page-heading"
         title={"Crypto Exchanges"}
         subtitle={
           "Discover the top cryptocurrency exchanges ranked by trust score and trading volume."
@@ -26,21 +37,33 @@ export default async function ExchangesPage(props: {
         <Exchanges exchanges={exchanges} />
 
         {/* Pagination Controls */}
-        <div className="flex justify-center items-center mt-6 space-x-4">
+        <div
+          className="flex justify-center items-center mt-6 space-x-4"
+          role="navigation"
+          aria-label="Pagination"
+        >
           <Link
             href={`?page=${Math.max(page - 1, 1)}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
               page === 1 ? "opacity-50 pointer-events-none" : ""
             }`}
+            aria-disabled={page === 1}
+            aria-label="Previous page"
           >
             Previous
           </Link>
-          <span className="text-white">Page {page}</span>
+          <span className="text-white" aria-live="polite">
+            Page {page} of {Math.ceil(exchangesTotal / 12)}
+          </span>
           <Link
             href={`?page=${page + 1}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
-              page > exchangesTotal ? "opacity-50 pointer-events-none" : ""
+              page * 12 >= exchangesTotal
+                ? "opacity-50 pointer-events-none"
+                : ""
             }`}
+            aria-disabled={page * 12 >= exchangesTotal}
+            aria-label="Next page"
           >
             Next
           </Link>

@@ -7,20 +7,25 @@ interface iCoinProps {
   coin: ICoin;
 }
 
-export default function Coin({ ...props }: iCoinProps) {
-  const { coin } = props;
-
+export default function Coin({ coin }: iCoinProps) {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-black text-center">
+    <div
+      className="bg-gray-800 p-4 rounded-lg shadow-lg text-black text-center"
+      role="article"
+      aria-labelledby={`coin-${coin.id}`}
+    >
       <div className="h-16 w-16 relative m-auto">
         <Image
           src={coin.image}
-          alt={coin.name}
+          alt={`Logo of ${coin.name}`}
           fill
           className="rounded-full mx-auto object-contain"
         />
       </div>
-      <h2 className="text-xl font-bold mt-4 text-center text-white">
+      <h2
+        id={`coin-${coin.id}`}
+        className="text-xl font-bold mt-4 text-center text-white"
+      >
         {coin.name}
       </h2>
       <div className="flex justify-center gap-3 items-center">
@@ -33,6 +38,7 @@ export default function Coin({ ...props }: iCoinProps) {
               ? "text-green-500"
               : "text-red-500"
           }`}
+          aria-live="polite"
         >
           {coin.price_change_percentage_24h > 0 ? (
             <FaLongArrowAltUp />
@@ -55,8 +61,11 @@ export default function Coin({ ...props }: iCoinProps) {
       </div>
 
       <div className="text-center">
-        <Link href={"coins/" + coin.name}>
-          <button className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5">
+        <Link href={"coins/" + coin.id}>
+          <button
+            className="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700 transition duration-300 my-5"
+            aria-label={`See more details for ${coin.name}`}
+          >
             See More
           </button>
         </Link>

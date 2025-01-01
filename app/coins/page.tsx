@@ -15,8 +15,12 @@ export default async function AllCryptoPage(props: {
   const coinsTotal = await getCoinsTotal();
 
   return (
-    <main className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen">
+    <main
+      className="lg:px-12 md:px-6 px-3 bg-black bg-opacity-70 min-h-screen"
+      aria-labelledby="crypto-page-heading"
+    >
       <PageHeading
+        id="crypto-page-heading"
         title="Explore Cryptocurrencies"
         subtitle="Dive into the dynamic world of cryptocurrencies. Get real-time information on coin prices, market capitalization, trends, and much more."
       />
@@ -24,21 +28,29 @@ export default async function AllCryptoPage(props: {
       <section className="mt-6">
         <Coins coins={coins} />
 
-        <div className="flex justify-center items-center mt-6 space-x-4">
+        <div
+          className="flex justify-center items-center mt-6 space-x-4"
+          role="navigation"
+          aria-label="Pagination navigation"
+        >
           <Link
             href={`?page=${Math.max(page - 1, 1)}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
               page === 1 ? "opacity-50 pointer-events-none" : ""
             }`}
+            aria-label="Go to previous page"
           >
             Previous
           </Link>
-          <span className="text-white">Page {page}</span>
+          <span className="text-white" aria-live="polite">
+            Page {page}
+          </span>
           <Link
             href={`?page=${page + 1}`}
             className={`px-4 py-2 bg-gray-700 text-white rounded ${
               page > coinsTotal ? "opacity-50 pointer-events-none" : ""
             }`}
+            aria-label="Go to next page"
           >
             Next
           </Link>

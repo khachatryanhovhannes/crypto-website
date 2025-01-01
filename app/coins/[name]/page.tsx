@@ -4,13 +4,12 @@ import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 import Image from "next/image";
 
 interface ICoinPageProps {
-  params: { name: string };
+  params: Promise<{ name: string }>;
 }
 
 export default async function CoinPage({ params }: ICoinPageProps) {
-  const { name } = await params;
+  const name = (await params).name;
 
-  // Fetching coin details using your existing API function
   const coinDetails: ISingleCoin = await getCoinDetails(name);
 
   return (

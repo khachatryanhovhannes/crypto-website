@@ -2,7 +2,14 @@ import { Coins } from "@/components/coins";
 import { PageHeading } from "@/components/global";
 import { ICoin } from "@/models";
 import { getCoins, getCoinsTotal } from "@/services";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Explore Cryptocurrencies - Crypto Tracker",
+  description:
+    "Dive into the dynamic world of cryptocurrencies. Get real-time information on coin prices, market capitalization, trends, and much more.",
+};
 
 export default async function AllCryptoPage(props: {
   searchParams: { page?: string };

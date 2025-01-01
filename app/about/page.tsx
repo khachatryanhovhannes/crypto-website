@@ -1,11 +1,12 @@
-export const metadata = {
+import { PageHeading } from "@/components/global";
+import { Features, Hero, Mission, Team, WhyChoose } from "@/components/about";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "About Our Crypto Tracking Platform",
   description:
     "Learn about our crypto tracking platform that provides real-time data, insights, and tools for tracking cryptocurrency market trends, trading volumes, and price fluctuations.",
 };
-
-import { PageHeading } from "@/components/global";
-import { Features, Hero, Mission, Team, WhyChoose } from "@/components/about";
 
 export default function About() {
   return (

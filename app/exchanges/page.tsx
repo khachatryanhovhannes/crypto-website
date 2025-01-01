@@ -3,6 +3,13 @@ import { IExchange } from "@/models";
 import { getExchanges, getExchangesTotal } from "@/services";
 import Exchanges from "../../components/exchanges/exchanges/index";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Top Cryptocurrency Exchanges - Crypto Tracker",
+  description:
+    "Explore the top cryptocurrency exchanges ranked by trust score, trading volume, and more. Stay informed and find the right platform for your needs.",
+};
 
 export default async function ExchangesPage(props: {
   searchParams: { page?: string };
